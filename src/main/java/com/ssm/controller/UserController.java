@@ -131,4 +131,22 @@ public class UserController {
 		}
 		return d_result;
 	}
+	
+//	测试多个参数test
+	private Map<String,Object> t_result=new HashMap<String,Object>();
+	@ResponseBody
+	@RequestMapping("/test")
+	public Map<String, Object> t_result(Integer id,String name){
+		userService.delete(id);//保存传入的用户数据
+		try {
+			t_result.put("data", name);//表示成功
+			t_result.put("id", id);//表示成功
+			t_result.put("info", "测试成功！");
+		} catch (Exception e) {
+			// TODO: handle exception
+			t_result.put("code", 1);
+			t_result.put("info", e.getStackTrace());
+		}
+		return t_result;
+	}
 }
