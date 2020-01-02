@@ -17,4 +17,8 @@ public interface UserService {
 	public User get(Integer id);
 	//删除数据
 	public void delete(Integer id);
+//	更新openid
+	public void open_update(Integer id,String openid);
+//	select openid
+	public User get_openid(String openid);
 }

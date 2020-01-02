@@ -31,11 +31,23 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		userMapper.update(user);
 	}
+	
+	@Override
+	public void open_update(Integer id,String openid) {
+		// TODO Auto-generated method stub
+		userMapper.open_update(id,openid);
+	}
 
 	@Override
 	public User get(Integer id) {
 		// TODO Auto-generated method stub
 		return userMapper.get(id);
+	}
+	
+	@Override
+	public User get_openid(String openid) {
+		// TODO Auto-generated method stub
+		return userMapper.get_openid(openid);
 	}
 
 	@Override

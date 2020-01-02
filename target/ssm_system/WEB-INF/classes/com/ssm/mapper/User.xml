@@ -4,28 +4,48 @@
 <mapper namespace="com.ssm.mapper.UserMapper">
 
     <insert id="saveUser" parameterType="User">
-        insert into category_(
-			name
+        insert into user(
+			name,
+			nickname,
+			headimg,
+			cid,
+			fans_id
+			focus_id,
+			open_id
 		)values(
-			#{name}
+			#{name},
+			#{nickname},
+			#{headimg},
+			#{cid},
+			#{fans_id},
+			#{focus_id},
+			#{open_id}
 		)
     </insert>
     <delete id="delete" parameterType="int" >
-	        delete from category_ where id= #{id}   
+	        delete from user where id= #{id}   
 	    </delete>
 	    <!-- 没有参数就不用给parameterType，resultType是返回数据类型 -->
     <select id="findAll" resultType="User">
-        select * from   category_    
+        select * from   user    
     </select>
 
     <update id="update" parameterType="User" >
-        update category_ set name=#{name} where id=#{id}    
+        update user set name=#{name},nickname=#{nickname},headimg=#{headimg},cid=#{cid},fans_id=#{fans_id},focus_id=#{focus_id} where id=#{id}    
+    </update>
+    <!-- 仅仅更新一个参数，如openid -->
+    <update id="open_update" >
+        update user set openid=#{1} where id=#{0}    
     </update>
     <select id="list" resultType="User">
-        select * from   category_      
+        select * from   user      
     </select>
     <!-- 传入参数为int -->
     <select id="get" parameterType="int" resultType="User">
-        select * from   category_  where id=#{id}    
+        select * from   user  where id=#{id}    
+    </select>
+    
+    <select id="get_openid" parameterType="string" resultType="User">
+        select * from  user  where openid=#{openid}    
     </select>
 </mapper>

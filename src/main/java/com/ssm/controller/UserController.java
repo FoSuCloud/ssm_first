@@ -13,6 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ssm.domain.User;
 import com.ssm.service.UserService;
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/user")
@@ -20,16 +21,32 @@ public class UserController {
 	@Resource
 	private UserService userService;
 	
-	/**
-	 * @return 给页面返回一个json格式的数据,完整访问路径是customer/list
-	 * produces = "application/json;charset=UTF-8"指定返回的数据编码和格式
-	 */
-	@RequestMapping(value="/list",produces = "application/json;charset=UTF-8")
+	private Map<String,Object> get_o_result=new HashMap<String,Object>();
+//	登录，返回code,修改表格的openid
+	@RequestMapping(value="/login",produces = "application/json;charset=UTF-8")
 	@ResponseBody  //用于转换对象为json
-	public List<User> list() {
+	public Map<String, Object> login(Integer id,String code) {
 //		获取数据
-		List<User> list=userService.findAll();
-		return list;//返回[{},{}]形式的json数据
+		String url="https://api.weixin.qq.com/sns/jscode2session";
+		String params="appid=wxcd183a3a1e87c7a7&secret=7414b7988220f233164fb180e43744a0&js_code="+code+"&grant_type=authorization_code";
+		String result=util.http.Get(url, params);
+//		json字符串转为json格式数据
+		JSONObject object = JSONObject.fromObject(result);
+//		json格式数据取某个键的值  修改openid
+		//userService.open_update(id,object.get("openid").toString());
+		//首先搜索是否存在该openid在用户表中，如果存在则返回数据，如果不存在也返回，前端判断数据跳转到注册页面
+		User user=userService.get_openid(object.get("openid").toString());
+		if(user!=null) {
+			//直接调用getId()判断会失败
+			get_o_result.put("code", 0);//表示成功
+			get_o_result.put("data", user);
+			get_o_result.put("info", "登录成功！");
+		}else {
+			get_o_result.put("code", 1);//表示失败
+			get_o_result.put("info", "您还未注册！");
+		}
+		//获取该用户的数据，用于判断是否注册过
+		return get_o_result;
 	}
 	
 	

@@ -1,10 +1,6 @@
-com\ssm\mapper\CustomerMapper.class
-com\ssm\controller\UserController.class
-com\ssm\service\impl\CustomerServiceImpl.class
 com\ssm\service\UserService.class
 com\ssm\mapper\UserMapper.class
-com\ssm\domain\Customer.class
-com\ssm\controller\CustomerController.class
 com\ssm\service\impl\UserServiceImpl.class
+util\http.class
+com\ssm\controller\UserController.class
 com\ssm\domain\User.class
-com\ssm\service\CustomerService.class

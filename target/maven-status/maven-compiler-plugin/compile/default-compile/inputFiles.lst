@@ -1,10 +1,6 @@
 E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\domain\User.java
 E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\mapper\UserMapper.java
-E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\controller\CustomerController.java
-E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\service\impl\CustomerServiceImpl.java
-E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\mapper\CustomerMapper.java
+E:\Eclipse\MyGame\git_ssm\src\main\java\util\http.java
 E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\controller\UserController.java
-E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\domain\Customer.java
-E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\service\CustomerService.java
 E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\service\impl\UserServiceImpl.java
 E:\Eclipse\MyGame\git_ssm\src\main\java\com\ssm\service\UserService.java
