@@ -1,6 +1,7 @@
 com\ssm\service\UserService.class
 com\ssm\mapper\UserMapper.class
 com\ssm\service\impl\UserServiceImpl.class
+util\upload.class
 util\http.class
 com\ssm\controller\UserController.class
 com\ssm\domain\User.class
