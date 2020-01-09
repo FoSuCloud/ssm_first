@@ -8,7 +8,20 @@ public class User {
 	private String nickname;
 	private String headimg;
 	private String open_id;
-	
+//	实例化对象,通过new User()
+    public User(Integer id, Integer cid,String fans_id,String focus_id,String nickname
+    		,String headimg,String open_id) {
+        super();
+        this.id = id;
+        this.cid = cid;
+        this.fans_id = fans_id;
+        this.focus_id = focus_id;
+        this.nickname = nickname;
+        this.headimg = headimg;
+        this.open_id = open_id;
+    }
+    
+    
 	public String getName() {
 		return nickname;
 	}
