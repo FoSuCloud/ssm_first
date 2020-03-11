@@ -5,38 +5,33 @@
 
     <insert id="saveUser" parameterType="User">
         insert into user(
-			name,
 			nickname,
-			headimg,
-			cid,
-			fans_id
-			focus_id,
-			open_id
+			number,
+			password,
+			address
 		)values(
-			#{name},
 			#{nickname},
-			#{headimg},
-			#{cid},
-			#{fans_id},
-			#{focus_id},
-			#{open_id}
+			#{number},
+			#{password},
+			#{address}
 		)
     </insert>
     <delete id="delete" parameterType="int" >
 	        delete from user where id= #{id}   
-	    </delete>
-	    <!-- 没有参数就不用给parameterType，resultType是返回数据类型 -->
+	</delete>
+	<!-- 没有参数就不用给parameterType，resultType是返回数据类型 -->
     <select id="findAll" resultType="User">
         select * from   user    
     </select>
 
     <update id="update" parameterType="User" >
-        update user set name=#{name},nickname=#{nickname},headimg=#{headimg},cid=#{cid},fans_id=#{fans_id},focus_id=#{focus_id} where id=#{id}    
+        update user set nickname=#{nickname},number=#{number},password=#{password},address=#{address} where id=#{id}    
     </update>
     <!-- 仅仅更新一个参数，如openid -->
-    <update id="open_update" >
-        update user set openid=#{1} where id=#{0}    
+    <update id="nickname_update" >
+        update user set nickname=#{1} where id=#{0}    
     </update>
+    
     <select id="list" resultType="User">
         select * from   user      
     </select>
@@ -45,7 +40,7 @@
         select * from   user  where id=#{id}    
     </select>
     
-    <select id="get_openid" parameterType="string" resultType="User">
-        select * from  user  where openid=#{openid}    
+    <select id="get_pass"  resultType="User">
+        select * from  user  where number=#{number} and password=#{password}
     </select>
 </mapper>

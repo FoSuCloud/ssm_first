@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.ssm.domain.User;
 
-
-
 public interface UserService {
 //	查询所有数据(业务接口)
 	public List<User> findAll();
@@ -17,8 +15,6 @@ public interface UserService {
 	public User get(Integer id);
 	//删除数据
 	public void delete(Integer id);
-//	更新openid
-	public void open_update(Integer id,String openid);
-//	select openid
-	public User get_openid(String openid);
+	//根据账号和密码判断用户登录
+	public User get_pass(String number,String password);
 }
