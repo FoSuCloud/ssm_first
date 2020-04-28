@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService{
 	@Resource UserMapper userMapper;
 	
 	@Override
-	public List<User> findAll() {
+	public List<Object> findAll() {
 		// TODO Auto-generated method stub
 		return userMapper.findAll();
 	}
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
 	
 
 	@Override
-	public User get(Integer id) {
+	public Object get(Integer id) {
 		// TODO Auto-generated method stub
 		return userMapper.get(id);
 	}
@@ -47,9 +47,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User get_pass(String number, String password) {
+	public Object get_pass(String number, String password) {
 		// TODO Auto-generated method stub
 		return userMapper.get_pass(number,password);
 	}
 
+	@Override
+	public Object get_openid(String openid) {
+		// TODO Auto-generated method stub
+		return userMapper.get_openid(openid);
+	}
 }

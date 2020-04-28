@@ -8,12 +8,18 @@
 			nickname,
 			number,
 			password,
-			address
+			address,
+			time,
+			sex,
+			openid
 		)values(
 			#{nickname},
 			#{number},
 			#{password},
-			#{address}
+			#{address},
+			#{time},
+			#{sex},
+			#{openid}
 		)
     </insert>
     <delete id="delete" parameterType="int" >
@@ -21,11 +27,11 @@
 	</delete>
 	<!-- 没有参数就不用给parameterType，resultType是返回数据类型 -->
     <select id="findAll" resultType="User">
-        select * from   user    
+        select nickname,time,number,address,sex from   user    
     </select>
 
     <update id="update" parameterType="User" >
-        update user set nickname=#{nickname},number=#{number},password=#{password},address=#{address} where id=#{id}    
+        update user set nickname=#{nickname},number=#{number},password=#{password},address=#{address},time=#{time},sex=#{sex} where id=#{id}    
     </update>
     <!-- 仅仅更新一个参数，如openid -->
     <update id="nickname_update" >
@@ -37,10 +43,14 @@
     </select>
     <!-- 传入参数为int -->
     <select id="get" parameterType="int" resultType="User">
-        select * from   user  where id=#{id}    
+        select nickname,time,number,address,sex from   user  where id=#{id}    
     </select>
     
     <select id="get_pass"  resultType="User">
-        select * from  user  where number=#{number} and password=#{password}
+        select nickname,time,number,address,sex from  user  where number=#{number} and password=#{password}
+    </select>
+    
+    <select id="get_openid"  resultType="User">
+        select nickname,time,number,address,sex from  user  where openid=#{openid}
     </select>
 </mapper>

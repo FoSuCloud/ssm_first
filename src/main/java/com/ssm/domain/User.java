@@ -6,6 +6,9 @@ public class User {
 	private String number;
 	private String password;
 	private String address;
+	private String time;
+	private Integer sex;
+	private String openid;
 	
 //	实例化对象,通过new User(),不需要这个？？？有这个会出错。。
 //    public User(Integer id,String nickname,String number,String password,String address) {
@@ -55,6 +58,30 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
 	}
     
 }

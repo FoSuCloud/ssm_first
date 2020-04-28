@@ -1,7 +1,12 @@
-com\ssm\service\UserService.class
-com\ssm\mapper\UserMapper.class
-com\ssm\service\impl\UserServiceImpl.class
 util\upload.class
 util\http.class
 com\ssm\controller\UserController.class
+com\ssm\domain\Manager.class
+com\ssm\service\UserService.class
+com\ssm\mapper\UserMapper.class
+com\ssm\mapper\ManagerMapper.class
+com\ssm\service\impl\ManagerServiceImpl.class
+com\ssm\service\impl\UserServiceImpl.class
 com\ssm\domain\User.class
+com\ssm\service\ManagerService.class
+com\ssm\controller\ManagerController.class
